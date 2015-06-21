@@ -68,6 +68,7 @@
   ; (.log js/console (clj->js form))))
   (shared/update-app-data! shared/app-state data :rerank? true)
    (shared/transact-app-state! shared/app-state [:dataset-info] (fn [_] info))
+  (shared/transact-app-state! shared/app-state [:views :all] (fn [_] [:map :table :details]))
    (integrate-attachments! shared/app-state public-form)
    (om/root views/tabbed-dataview
             shared/app-state
